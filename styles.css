@@ -27,6 +27,7 @@
 
 .nav-item {
   font-size: 2rem;
+  z-index: 1000;
 }
 
 .items {
@@ -131,6 +132,9 @@
     height: 100%;
     overflow: hidden;
   }
+  .item:first-child {
+    padding-top: 2rem;
+  }
   .item-name {
     font-size: 40px;
     writing-mode: horizontal-tb;
@@ -147,9 +151,7 @@
     justify-content: space-between;
     padding: 0em 2em;
   }
-  .item-copy:first-child {
-    padding-top: 2rem;
-  }
+
   .item-copy .id {
     color: red;
     font-size: 50px;
