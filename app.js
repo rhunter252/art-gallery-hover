@@ -4,11 +4,10 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
-app.use("/openai", require("./routes/openaiRoutes"));
+// Enable body parser
+app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use("/openai", require("./routes/openaiRoutes"));
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
