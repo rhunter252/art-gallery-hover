@@ -10,6 +10,8 @@
 
   <title>7 Deadly Sins</title>
   <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/spinner.css" />
+
 </head>
 
 <body>
@@ -20,15 +22,14 @@
     </div>
     <section class="modal hidden">
       <div class="flex">
-        <img src="./images/lust.jpg" width="50px" height="50px" alt="user" />
+        <div class="spinner show"></div>
+        <h2 class="msg"></h2>
+        <img id="image" class="modal-img" src="" width="50px" height="50px" alt="item" loading="lazy" />
         <button class="btn-close">⨉</button>
       </div>
-      <div>
-        <h3>Stay in touch</h3>
-        <p>
-          This is a dummy newsletter form so don't bother trying to test it. Not
-          that I expect you to, anyways. :)
-        </p>
+      <div id="itemsContainer" class="modal-text-section">
+        <h3 id="name" class="name"></h3>
+        <p id="verse" class="verse">+-</p>
       </div>
     </section>
     <div class="overlay hidden"></div>
@@ -126,7 +127,8 @@
       </div>
     </div>
 
-    <script src="./js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="../public/itemsData.js"></script>
 </body>
 
 </html>
