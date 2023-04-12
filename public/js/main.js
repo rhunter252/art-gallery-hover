@@ -67,7 +67,7 @@ const itemsData = [
   },
 ];
 
-async function generateImageRequest(prompt) {
+async function generateImageRequest(prompt, index) {
   try {
     showSpinner();
 
@@ -87,9 +87,9 @@ async function generateImageRequest(prompt) {
     }
 
     const data = await response.json();
-    console.log(data);
+    console.log(data.data[index]);
 
-    const imageUrl = data.data;
+    const imageUrl = data.data[index];
 
     document.querySelector("#image").src = imageUrl;
 
@@ -142,7 +142,7 @@ Array.from(items).forEach((item, index) => {
     verse.textContent = currentItem.verse;
     modal.classList.remove("hidden");
     overlay.classList.remove("hidden");
-    generateImageRequest(prompt);
+    generateImageRequest(prompt, index);
   });
 
   closeModalBtn.addEventListener("click", closeModal);

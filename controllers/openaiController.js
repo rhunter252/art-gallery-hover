@@ -25,13 +25,13 @@ itemsData = [
   {
     id: 3,
     name: "Gluttony",
-    description: "Gluttony, obese ",
+    description: "Gluttony, obese",
     verse:
       "For drunkards and gluttons become poor, and drowsiness clothes them in rags. - Proverbs 23:21",
     image: "/",
   },
   {
-    id: 5,
+    id: 4,
     name: "Wrath",
     description: "Wrath, anger",
     verse:
@@ -39,7 +39,7 @@ itemsData = [
     image: "/",
   },
   {
-    id: 6,
+    id: 5,
     name: "Envy",
     description: "Envy, jealous",
     verse:
@@ -65,23 +65,21 @@ itemsData = [
 ];
 
 const generateImage = async (req, res) => {
-  const prompt = itemsData[2].description;
-
-  for (let items of itemsData) {
-    console.log(items.description);
-  }
-
   try {
-    const response = await openai.createImage({
-      prompt,
-      n: 1,
-    });
-
-    const imageUrl = response.data.data[0].url;
+    const imageUrls = await Promise.all(
+      itemsData.map(async (item) => {
+        const prompt = item.description;
+        const response = await openai.createImage({
+          prompt,
+          n: 1,
+        });
+        return response.data.data[0].url;
+      })
+    );
 
     res.status(200).json({
       success: true,
-      data: imageUrl,
+      data: imageUrls,
     });
   } catch (error) {
     if (error.response) {
@@ -92,7 +90,7 @@ const generateImage = async (req, res) => {
     }
     res.status(400).json({
       success: false,
-      error: "The image could not be generated",
+      error: "The images could not be generated",
     });
   }
 };
