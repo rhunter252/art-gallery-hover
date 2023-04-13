@@ -7,7 +7,7 @@
     "node": "16.x"
   },
   "scripts": {
-    "start": "node index",
+    "start": "node app.js",
     "dev": "nodemon index",
     "build": "npm run build"
   },
