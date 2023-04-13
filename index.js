@@ -14,5 +14,5 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/openai", require("./routes/openaiRoutes"));
 
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${port}`);
+  console.log(`Server listening on port ${PORT}`);
 });
