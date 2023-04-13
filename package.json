@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
+    "build": "echo 'No build step needed'",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
   },
   "keywords": [],
