@@ -134,7 +134,6 @@ Array.from(items).forEach((item, index) => {
   wrapper.addEventListener("click", () => {
     const name = document.getElementById("name");
     const verse = document.getElementById("verse");
-    const itemImg = item.querySelector("img");
     const currentItem = itemsData[index];
     const prompt = currentItem.description;
 
